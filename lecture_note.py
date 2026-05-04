@@ -123,3 +123,31 @@ score_df = pd.DataFrame(data)
 score_counts = score_df['Score'].value_counts(dropna=False)
 print(score_counts) 
 
+## CONVERTING PANDAS COLUMNS TO LIST
+import numpy as np
+import pandas as pd
+
+df=pd.read_json('data/Cars.json')
+df.head()
+
+# Convert a column to a list
+car_list = df['Car'].tolist()
+print(car_list)
+
+# made a list of all values in a 'car' column
+col_list= df['Car'].values.tolist()
+print(col_list)
+
+#Same things but with dot syntax 
+df.Car.values.tolist()
+
+# Rename a Colomn in Pandas
+tech = {
+    'Courses': ["Python", ' DataAnalytics', 'MERN Stack', 'Data Engineering'],
+    'Fee': [100, 2000, 250, 300],
+    'Duration':['40days', '50days', '3 months', '1 year']
+}
+tech_df = pd.DataFrame(tech)
+tech_df = tech_df.rename(columns={'Courses': 'Course'})
+tech_df.head()
+
